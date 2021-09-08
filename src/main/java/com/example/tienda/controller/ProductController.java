@@ -24,10 +24,10 @@ public class ProductController {
    @GetMapping("/")
    public String index(Model model){
        List<Product> list = new ArrayList<>();
-       productService.createProduct(new Product(null, ProductType.AUDIO, "Tampones", 12.56, 10,"Son tampones"));
+       /*productService.createProduct(new Product(null, ProductType.AUDIO, "Tampones", 12.56, 10,"Son tampones"));
        productService.createProduct(new Product(null, ProductType.AUDIO, "Audifonos 3M", 13.56, 10,"xds"));
        productService.createProduct(new Product(null, ProductType.AUDIO, "Orejeras NoiceCancek", 20.6, 20,"Son xd"));
-       productService.createProduct(new Product(null, ProductType.FACIAL, "Facial Shield", 12.56, 10,"Son xdss"));
+       productService.createProduct(new Product(null, ProductType.FACIAL, "Facial Shield", 12.56, 10,"Son xdss"));*/
        productService.getAllProducts().forEach(list::add);
        List<Product> carrito = new ArrayList<>();
        carrito.add(productService.findByName("Tampones"));
