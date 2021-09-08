@@ -33,14 +33,14 @@ public class ProductController {
        carrito.add(productService.findByName("Tampones"));
        model.addAttribute("products", list);
        model.addAttribute("carrito", carrito);
-       return "catalogo";
+       return "productos";
    }
 
-   @GetMapping("/catalago/{category}")
+   @GetMapping("/productos/{category}")
     public String showCategory(@PathVariable("category") ProductType productType, Model model){
         List<Product> list =productService.findAllByProductType(productType);
         model.addAttribute("products", list);
-        return "catalogo";
+        return "productos";
    }
 
 }
