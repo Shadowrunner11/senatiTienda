@@ -19,86 +19,117 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav>
+<header>
+    <nav>
         <div class="nav-wrapper blue darken-4">
-            <div class="brand-logo">
+            <div class="brand-logo espacio">
                 <a href="">
-                <span class="large material-icons">
-                    security
-                </span>
-                PeruDelibery
+                    <span class="large material-icons">security</span>
+                    <span class="hide-on-small-only">PeruDelibery</span>
                 </a>
             </div>
-                <a href="" data-target="mobile-demo" class="sidenav-trigger">
+            <a href="" data-target="mobile-demo" class="sidenav-trigger">
                 <span class="large material-icons">
                     menu
                 </span>
+            </a>
+            <div class="right">
+                <a href="">
+                    <span class="material-icons">shopping_cart</span>
                 </a>
-                <div class="right">
-                    <a href="">Login</a>
-                    <a href="signup.html" class="waves-effect waves-light btn">Sign up</a>
-                </div> 
+
+                <span class="material-icons hide-on-large-only">account_circle</span>
+                <span id='user' class="hide-on-med-and-down ">
+                        <a href="">Login</a>
+                        <a href="signup.html" class="waves-effect waves-light btn">Sign up</a>
+                    </span>
+
+            </div>
             <ul class="right hide-on-med-and-down">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="productos.html">Productos</a></li>
                 <li><a href="">Nosotros</a></li>
-                <li><form action="">
-                <input type="text" placeholder="buscar">
-                <span class="material-icons">
-                    shopping_cart
-                    </span>        
-                </form></li>
+
             </ul>
-            
+
         </div>
     </nav>
-    </header>
-    <!--catalogo-->
-    <div class="row">
-    <aside class="col s1">
-        <div class="container">
-        <h5>Categorias</h5>
-        <ul class="right hide-on-med-and-down">
-            <li><a th:href="@{/productos/AUDIO}">Proteccion auditiva</a></li>
-            <li><a th:href="@{/productos/FACIAL}">Protecion facial</a></li>
-            <li> <a th:href="@{/productos/AUDIO}">Audio</a></li>
+</header>
 
-        </ul>
-        </div>
-    </aside>
-    <aside class="col s11">
+<!--catalogo-->
+<div class="row">
+    <aside class="col s12 m4 l3">
+        <br>
         <div class="container">
-        <h3>Catalogo</h3>
-        <div class="row" >
-
-        <!--producto-->
-            <div class="col s4" th:each="product:${products}">
-            <h5 class="header" th:text="${product.name}"></h5>
-            <div class="card horizontal">
-            <div class="card-image">
-                <img src="https://lorempixel.com/100/190/nature/6">
-            </div>
-            <div class="card-stacked">
-                <div class="card-content">
-                <p th:text="${product.description}"></p>
-                </div>
-                <div class="card-action">
-                <a href="#">comprar</a>
+            <div>
+                <div class="input-field col s12">
+                    <span class="material-icons prefix">search</span>
+                    <input id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">Buscar</label>
                 </div>
             </div>
+            <div class="card-panel">
+                <h5>Categorias</h5>
+                <li><a th:href="@{/productos/AUDIO}">Proteccion auditiva</a></li>
+                <li><a th:href="@{/productos/FACIAL}">Protecion facial</a></li>
+                <li> <a th:href="@{/productos/AUDIO}">Audio</a></li>
             </div>
-            </div>
-            </div>
-
         </div>
     </aside>
-    </div>
-   
+    <aside class="col s12 m8 l9">
+        <div class="">
+            <h3>Catalogo</h3>
+            <div class="row">
 
-  
+                <!--producto-->
+                <div class="col s4" th:each="product:${products}">
+                    <h5 class="header" th:text="${product.name}"></h5>
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img class="responsive-img" src="https://lorempixel.com/100/190/nature/6">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p th:text="${product.description}"></p>
+                            </div>
+                            <div class="card-action">
+                                <a th:href="@{/detailProduct/{id}(id=${product.id})}"><span th:text="${product.price}"></span> </a>
+                                <a id="scale-demo" href="" class="btn-floating btn-large scale-transition">
+                                    <i class="material-icons">add</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end Product-->
 
-    <footer class="page-footer blue darken-4">
+                <!--producto-->
+                <div class="col s12 m6 l4 hoverable">
+                    <h5 class="header">Producto Name</h5>
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img src="https://lorempixel.com/100/190/nature/6">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p>Descripcion.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#">Price</a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end Product-->
+
+            </div>
+        </div>
+    </aside>
+</div>
+
+
+
+
+
+<footer class="page-footer blue darken-4">
         <div class="container">
           <div class="row">
             <div class="col l6 s12">

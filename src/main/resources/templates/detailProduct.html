@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>PeruDelibery</title>
+    <style>
+        .product{
+            width: 100%;
+        }
+        .nav-wrapper .espacio, #user{
+            padding: 0 50px 0 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+        <div class="nav-wrapper blue darken-4">
+            <div class="brand-logo espacio">
+                <a href="">
+                <span class="large material-icons">security</span>
+                <span class="hide-on-small-only">PeruDelibery</span>
+                </a>
+            </div>
+                <a href="" data-target="mobile-demo" class="sidenav-trigger">
+                <span class="large material-icons">
+                    menu
+                </span>
+                </a>
+                <div class="right">
+                    <a href="">
+                    <span class="material-icons">shopping_cart</span>
+                    </a>
+                    
+                    <span class="material-icons hide-on-large-only">account_circle</span>
+                    <span id='user' class="hide-on-med-and-down ">
+                        <a href="">Login</a>
+                        <a href="signup.html" class="waves-effect waves-light btn">Sign up</a>
+                    </span>
+                    
+                </div> 
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="">Nosotros</a></li>
+                
+            </ul>
+            
+        </div>
+    </nav>
+    </header>
+    <!--detalles del producto-->
+    <section class="row">
+        <aside class="col s12 m6 l6 ">
+            
+            <br>
+            <div class="container">
+            <img class="materialboxed product" width="650" src="https://image.freepik.com/foto-gratis/casco-blanco-anteojos-proteccion-aislados_1303-20316.jpg" alt="">
+            </div>
+        </aside>
+        <aside th:object="${product}" class="col s12 m6 l6 ">
+            <div class="container">
+                <br>
+                <div th:text="*{productType}" class="chip"><i class="close material-icons">close</i></div>
+                <h4 th:text="*{name}"></h4>
+                <div class="card">
+                    <div class="card-content">
+                    <p th:text="*{description}"></p>
+                    </div>
+                    <form action="">
+                        <div class="row center">
+                            <div class="input-field col s6">
+                                <span class="material-icons prefix">tag</span>
+                                <input id="icon_telephone" type="number" class="validate" value="1">
+                                <label for="icon_telephone">Cantidad</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <p th:text="*{price}" class="align-center">Price</p>
+                            </div>
+                        </div>
+                        <div class="center">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Agregar
+                            <i class="material-icons">shopping_cart</i>
+                        </button>
+                        </div>
+                    </form>
+                    <br>
+                    <div class="card-tabs">
+                    <ul class="tabs tabs-fixed-width">
+                        <li class="tab"><a href="#test4">Stock</a></li>
+                        <li class="tab"><a class="active" href="#test5">Detalles</a></li>
+                        <li class="tab"><a href="#test6">Delivery</a></li>
+                    </ul>
+                    </div>
+                    <div class="card-content grey lighten-4">
+                    <div th:text="*{stock}" id="test4"></div>
+                    <div id="test5">
+                        COLOR:PINK <br>
+                        WIDTH:4cm <br>
+                        HEIGHT:10cm <br>
+                        COMPOSITION:Copper 70%, Zinc 30%
+                    </div>
+                    <div id="test6">
+                        <p>Precio de cargo: s/. 5</p>
+                        <p>Los pedidos salen en 1 día laborable o menos.
+                            Enviamos internacionalmente, a la mayoría de los países.
+                            Clientes internacionales: usted será responsable de pagar cualquier aduana y aranceles en su pedido.</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </section>
+   
+
+
+
+    <footer class="page-footer blue darken-4">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">Peru Delibery</h5>
+              <p class="grey-text text-lighten-4">Lideres en el venta de productos de seguridad.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">Sitio</h5>
+              <ul>
+                <li><a class="grey-text text-lighten-3" href="index.html">Inicio</a></li>
+                <li><a class="grey-text text-lighten-3" href="productos.html">Productos</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Nosotros</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Login</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2021 Copyright 
+          <a class="grey-text text-lighten-4 right" href="#!">Redes sociales</a>
+          </div>
+        </div>
+      </footer>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+     M.AutoInit();
+    </script>
+    <script>
+         document.addEventListener('DOMContentLoaded', function() {
+            M.AutoInit();
+         });
+    </script>
+</body>
+</html>

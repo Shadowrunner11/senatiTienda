@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -22,5 +23,9 @@ public class ProductService {
     public List<Product> findAllByProductType(ProductType productType){return productRepository.findAllByProductType(productType);}
     public void createProduct(Product product){
         productRepository.save(product);
+    }
+    public Product findById(Long id){
+        Optional<Product> objeto = productRepository.findById(id);
+        return objeto.get();
     }
 }
