@@ -3,6 +3,7 @@ package com.example.tienda.controller;
 import com.example.tienda.model.Product;
 import com.example.tienda.model.ProductType;
 import com.example.tienda.service.ProductService;
+import com.example.tienda.util.CarritoCompras;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,8 @@ public class ProductController {
     @Autowired
     private final ProductService productService;
 
+    List<CarritoCompras> carrito = new ArrayList<>();
+
    @GetMapping("/")
    public String index(Model model){
        List<Product> list = new ArrayList<>();
@@ -29,8 +32,8 @@ public class ProductController {
        productService.createProduct(new Product(null, ProductType.AUDIO, "Orejeras NoiceCancek", 20.6, 20,"Son xd"));
        productService.createProduct(new Product(null, ProductType.FACIAL, "Facial Shield", 12.56, 10,"Son xdss"));*/
        productService.getAllProducts().forEach(list::add);
-       List<Product> carrito = new ArrayList<>();
-       carrito.add(productService.findByName("Tampones"));
+
+
        model.addAttribute("products", list);
        model.addAttribute("carrito", carrito);
        return "productos";
@@ -48,6 +51,12 @@ public class ProductController {
            model.addAttribute("product", productService.findById(id));
        }
        return "detailProduct";
+   }
+   @GetMapping("/carrito/{cantidad}/{id}")
+    public String showCarrito(@PathVariable("cantidad") int cantidad, @PathVariable("id") Long id, Model model){
+        carrito.add(new CarritoCompras(cantidad,productService.findById(id)));
+        model.addAttribute("carrito", carrito);
+        return "carrito";
    }
 
 }
