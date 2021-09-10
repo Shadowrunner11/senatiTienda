@@ -8,9 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +21,7 @@ public class ProductController {
     private final ProductService productService;
 
     List<CarritoCompras> carrito = new ArrayList<>();
+    List<Long> ids = new ArrayList<>();
 
    @GetMapping("/")
    public String index(Model model){
@@ -50,12 +49,18 @@ public class ProductController {
        if (id!=null) {
            model.addAttribute("product", productService.findById(id));
        }
+
        return "detailProduct";
    }
-   @GetMapping("/carrito/{cantidad}/{id}")
-    public String showCarrito(@PathVariable("cantidad") int cantidad, @PathVariable("id") Long id, Model model){
-        carrito.add(new CarritoCompras(cantidad,productService.findById(id)));
-        model.addAttribute("carrito", carrito);
+   @GetMapping("/carrito")
+    public String showCarrito(@RequestParam String cantidad, @RequestParam String id, Model model){
+        int n_cantidad = Integer.parseInt(cantidad);
+        Long n_id = Long.parseLong(id);
+        if(!ids.contains(n_id)){
+            ids.add(n_id);
+            carrito.add(new CarritoCompras(n_cantidad,productService.findById(n_id)));
+        };
+        model.addAttribute("listaCarrito", carrito);
         return "carrito";
    }
 

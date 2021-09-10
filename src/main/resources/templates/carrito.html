@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,9 +20,9 @@
         <nav>
         <div class="nav-wrapper blue darken-4">
             <div class="brand-logo">
-                <a href="">
+                <a href="" th:href="@{/}">
                 <span class="large material-icons">security</span>
-                <span class="hide-on-small-only">PeruDelibery</span>
+                <span class="hide-on-small-only">Peru Delivery</span>
                 </a>
             </div>
                 <a href="" data-target="mobile-demo" class="sidenav-trigger">
@@ -57,10 +57,11 @@
                 <div>
                     <ul class="collection">
                         <!--Iterable-->
-                        <li class="collection-item avatar">
+                        <li th:each=" carritoP : ${listaCarrito}" class="collection-item avatar">
                             
                           <img src="https://image.freepik.com/foto-gratis/casco-blanco-anteojos-proteccion-aislados_1303-20316.jpg" alt="" class="circle">
-                          <span class="title">Producto</span>
+                          <span th:text="${carritoP.product.name}" class="title"></span>
+                            <p th:text="'cantidad '+ ${carritoP.cantidad}"></p>
                           <p>Precio Unitario <br>
                              Precio Total
                           </p>
@@ -78,7 +79,7 @@
                           <a href="#!" class="secondary-content tooltipped" data-tooltip="Modificar">
                             <span class="material-icons">settings</span></a>
                         </li>
-
+                        <!--Fin
                         <li class="collection-item avatar">
                             <img src="https://image.freepik.com/foto-gratis/casco-blanco-anteojos-proteccion-aislados_1303-20316.jpg" alt="" class="circle">
                             <span class="title">Producto</span>
@@ -89,7 +90,7 @@
                               <span class="material-icons">settings</span>
                               </a>
                           </li>
-                        <!--Fin Iterable-->
+                         Iterable-->
                     </ul>
                 </div>
             </aside>

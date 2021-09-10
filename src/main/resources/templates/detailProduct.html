@@ -23,12 +23,12 @@
         <nav>
         <div class="nav-wrapper blue darken-4">
             <div class="brand-logo espacio">
-                <a href="">
+                <a href="" th:href="@{/}">
                 <span class="large material-icons">security</span>
-                <span class="hide-on-small-only">PeruDelibery</span>
+                <span class="hide-on-small-only">Peru Delivery</span>
                 </a>
             </div>
-                <a href="" data-target="mobile-demo" class="sidenav-trigger">
+                <a href="" th:href="@{/}" data-target="mobile-demo" class="sidenav-trigger">
                 <span class="large material-icons">
                     menu
                 </span>
@@ -73,16 +73,16 @@
                     <div class="card-content">
                     <p th:text="*{description}"></p>
                     </div>
-                    <form action="">
+                    <form action="" th:action="@{/carrito}">
                         <div class="row center">
                             <div class="input-field col s6">
                                 <span class="material-icons prefix">tag</span>
-                                <input id="icon_telephone" type="number" class="validate" value="1">
-                       rgggggggggggggggg         <label for="icon_telephone">Cantidad</label>
+                                <input id="icon_telephone" type="number" class="validate" value="1" name="cantidad">
+                                <input type="hidden" name="id" th:field="*{id}">
+                          <label for="icon_telephone">Cantidad</label>
+
                             </div>
-                            <div class="input-field col s6">
-                                <p th:text="*{price}" class="align-center">Price</p>
-                            </div>
+
                         </div>
                         <div class="center">
                         <button class="btn waves-effect waves-light" type="submit" name="action">Agregar
@@ -90,6 +90,9 @@
                         </button>
                         </div>
                     </form>
+                    <div class="input-field col s6">
+                        <p th:text="*{price}" class="align-center">Price</p>
+                    </div>
                     <br>
                     <div class="card-tabs">
                     <ul class="tabs tabs-fixed-width">

@@ -23,12 +23,12 @@
     <nav>
         <div class="nav-wrapper blue darken-4">
             <div class="brand-logo espacio">
-                <a href="">
+                <a href="" th:href="@{/}">
                     <span class="large material-icons">security</span>
-                    <span class="hide-on-small-only">PeruDelibery</span>
+                    <span class="hide-on-small-only">Peru Delivery</span>
                 </a>
             </div>
-            <a href="" data-target="mobile-demo" class="sidenav-trigger">
+            <a href="" th:href="@{/}" data-target="mobile-demo" class="sidenav-trigger">
                 <span class="large material-icons">
                     menu
                 </span>
@@ -72,14 +72,15 @@
                 <h5>Categorias</h5>
                 <li><a th:href="@{/productos/AUDIO}">Proteccion auditiva</a></li>
                 <li><a th:href="@{/productos/FACIAL}">Protecion facial</a></li>
-                <li> <a th:href="@{/productos/AUDIO}">Audio</a></li>
+                <li> <a th:href="@{/productos/VISUAL}">Proteccion ocular</a></li>
             </div>
         </div>
     </aside>
     <aside class="col s12 m8 l9">
         <div class="">
             <h3>Catalogo</h3>
-            <div class="row">
+            <h4 th:if="${products.isEmpty()}">No hay productos</h4>
+            <div th:if="${!products.isEmpty()}" class="row" >
 
                 <!--producto-->
                 <div class="col s4" th:each="product:${products}">
@@ -102,7 +103,7 @@
                     </div>
                 </div><!--end Product-->
 
-                <!--producto-->
+                <!--producto
                 <div class="col s12 m6 l4 hoverable">
                     <h5 class="header">Producto Name</h5>
                     <div class="card horizontal">
@@ -118,7 +119,7 @@
                             </div>
                         </div>
                     </div>
-                </div><!--end Product-->
+                </div>-->
 
             </div>
         </div>
