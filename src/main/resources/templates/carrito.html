@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>PeruDelibery</title>
+    <style>
+        .product{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+        <div class="nav-wrapper blue darken-4">
+            <div class="brand-logo">
+                <a href="">
+                <span class="large material-icons">security</span>
+                <span class="hide-on-small-only">PeruDelibery</span>
+                </a>
+            </div>
+                <a href="" data-target="mobile-demo" class="sidenav-trigger">
+                <span class="large material-icons">
+                    menu
+                </span>
+                </a>
+                <div class="right">
+                    <a href="">
+                    <span class="material-icons">shopping_cart</span>
+                    </a>
+
+                    <a href="">Login</a>
+                    <a href="signup.html" class="waves-effect waves-light btn">Sign up</a>
+                </div> 
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="">Nosotros</a></li>
+                
+            </ul>
+            
+        </div>
+    </nav>
+    </header>
+    
+    <!--Shoping Cart-->
+    <section class="container">
+        <div class="row">
+            <aside class="col s12 m8 l8">
+                <h4>Carrito de Compras</h4>
+                <div>
+                    <ul class="collection">
+                        <!--Iterable-->
+                        <li class="collection-item avatar">
+                            
+                          <img src="https://image.freepik.com/foto-gratis/casco-blanco-anteojos-proteccion-aislados_1303-20316.jpg" alt="" class="circle">
+                          <span class="title">Producto</span>
+                          <p>Precio Unitario <br>
+                             Precio Total
+                          </p>
+                          <span>
+                          <form action="" >
+                              <br>
+                              <button>
+                                  <span class="material-icons">add</span>
+                              </button>
+                              <button>
+                                  <span class="material-icons">remove</span>
+                              </button>
+                          </form>
+                        </span>
+                          <a href="#!" class="secondary-content tooltipped" data-tooltip="Modificar">
+                            <span class="material-icons">settings</span></a>
+                        </li>
+
+                        <li class="collection-item avatar">
+                            <img src="https://image.freepik.com/foto-gratis/casco-blanco-anteojos-proteccion-aislados_1303-20316.jpg" alt="" class="circle">
+                            <span class="title">Producto</span>
+                            <p>Precio Unitario <br>
+                               Precio Total
+                            </p>
+                            <a href="#!" class="secondary-content tooltipped" data-tooltip="Modificar">
+                              <span class="material-icons">settings</span>
+                              </a>
+                          </li>
+                        <!--Fin Iterable-->
+                    </ul>
+                </div>
+            </aside>
+            <aside class="col s12 m4 l4">
+                <!--Pagar-->
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                    <div class="center">
+                        <p>Descuento en productos de uso Personal</p>
+                    </div>
+                    <img class="activator" src="https://image.freepik.com/vector-gratis/seguridad-salud-trabajadores-ilustracion-accesorios-proteccion_1284-51446.jpg">
+                    </div>
+                    <div class="card-content">
+                      <span class="card-title activator grey-text text-darken-4">Total a pagar<i class="material-icons right">more_vert</i></span>
+                      <p><a href="#">Precio</a></p>
+                      <div class="center">
+                      <button class="btn waves-effect waves-light" type="submit" name="action">Pagar
+                        <i class="material-icons right">paid</i>
+                      </button></div>
+                    </div>
+                    <div class="card-reveal">
+                      <span class="card-title grey-text text-darken-4">Reporte<i class="material-icons right">close</i></span>
+                      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                    </div>
+                  </div>
+            </aside>
+        </div>
+    </section>
+
+    <footer class="page-footer blue darken-4">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">Peru Delibery</h5>
+              <p class="grey-text text-lighten-4">Lideres en el venta de productos de seguridad.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">Sitio</h5>
+              <ul>
+                <li><a class="grey-text text-lighten-3" href="index.html">Inicio</a></li>
+                <li><a class="grey-text text-lighten-3" href="productos.html">Productos</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Nosotros</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Login</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2021 Copyright 
+          <a class="grey-text text-lighten-4 right" href="#!">Redes sociales</a>
+          </div>
+        </div>
+      </footer>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+     M.AutoInit();
+    </script>
+    <script>
+         document.addEventListener('DOMContentLoaded', function() {
+            M.AutoInit();
+         });
+    </script>
+</body>
+</html>
