@@ -35,7 +35,7 @@
                 </span>
                 </a>
                 <div class="right">
-                    <a href="carrito.html"><span class="material-icons">shopping_cart</span></a>
+                    <a th:href="@{/carrito}"><span class="material-icons">shopping_cart</span></a>
                     
                     <a class='dropdown-trigger hide-on-large-only' href='#' data-target='dropdown1'>
                         <span class="material-icons">account_circle</span>
@@ -75,11 +75,11 @@
     </header>
     <!--detalles del producto-->
     <section class="row">
-        <aside class="col s12 m6 l6 ">
+        <aside th:object="${product}" class="col s12 m6 l6 ">
             
             <br>
             <div class="container">
-            <img class="materialboxed product" width="650" src="https://image.freepik.com/foto-gratis/casco-blanco-anteojos-proteccion-aislados_1303-20316.jpg" alt="">
+            <img class="materialboxed product" width="650" th:src="*{imagenLink}" alt="">
             </div>
         </aside>
         <aside th:object="${product}" class="col s12 m6 l6 ">
@@ -91,7 +91,7 @@
                     <div class="card-content">
                     <p th:text="*{description}"></p>
                     </div>
-                    <form action="" th:action="@{/carrito}">
+                    <form action="" th:action="@{/carrito}" method="post">
                         <div class="row center">
                             <div class="input-field col s6">
                                 <span class="material-icons prefix">tag</span>
@@ -146,7 +146,7 @@
           <div class="row">
             <div class="col l6 s12">
               <h5 class="white-text">Peru Delibery</h5>
-              <p class="grey-text text-lighten-4">Lideres en el venta de productos de seguridad.</p>
+              <p class="grey-text text-lighten-4">Lideres en la venta de productos de seguridad.</p>
             </div>
             <div class="col l4 offset-l2 s12">
               <h5 class="white-text">Sitio</h5>

@@ -38,7 +38,7 @@
                 <a href="" th:href="@{/}" data-target="mobile-demo" class="sidenav-trigger">
                 <span class="large material-icons">menu</span></a>
                 <div class="right">
-                    <a href="carrito.html"><span class="material-icons">shopping_cart</span></a>
+                    <a th:href="@{/carrito}"><span class="material-icons">shopping_cart</span></a>
                     <a class='dropdown-trigger hide-on-large-only' href='#' data-target='dropdown1'>
                         <span class="material-icons">account_circle</span></a>
                     <span id='user' class="hide-on-med-and-down ">
@@ -102,7 +102,7 @@
                     <h5 class="header" th:text="${product.name}"></h5>
                     <div class="card horizontal">
                         <div class="card-image">
-                            <img class="responsive-img" src="https://lorempixel.com/100/190/nature/6">
+                            <img class="responsive-img" th:src="${product.imagenLink}">
                         </div>
                         <div class="card-stacked">
                             <div class="card-content">
@@ -147,7 +147,7 @@
           <div class="row">
             <div class="col l6 s12">
               <h5 class="white-text">Peru Delibery</h5>
-              <p class="grey-text text-lighten-4">Lideres en el venta de productos de seguridad.</p>
+              <p class="grey-text text-lighten-4">Lideres en la venta de productos de seguridad.</p>
             </div>
             <div class="col l4 offset-l2 s12">
               <h5 class="white-text">Sitio</h5>

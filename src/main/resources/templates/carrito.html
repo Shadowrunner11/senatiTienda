@@ -38,7 +38,7 @@
             </span>
             </a>
             <div class="right">
-                <a href="carrito.html"><span class="material-icons">shopping_cart</span></a>
+                <a th:href="@{/carrito}"><span class="material-icons">shopping_cart</span></a>
                 
                 <a class='dropdown-trigger hide-on-large-only' href='#' data-target='dropdown1'>
                     <span class="material-icons">account_circle</span>
@@ -83,11 +83,12 @@
             <aside class="col s12 m8 l8">
                 <h4>Carrito de Compras</h4>
                 <div>
-                    <ul class="collection">
+                    <h4 th:if="${listaCarrito.isEmpty()}">No hay productos</h4>
+                    <ul th:if="${!listaCarrito.isEmpty()}"class="collection">
                         <!--Iterable-->
                         <li th:each=" carritoP : ${listaCarrito}" class="collection-item avatar">
                             
-                          <img src="https://image.freepik.com/foto-gratis/casco-blanco-anteojos-proteccion-aislados_1303-20316.jpg" alt="" class="circle">
+                          <img th:src="${carritoP.product.imagenLink}" alt="" class="circle">
                           <span th:text="${carritoP.product.name}" class="title"></span>
                             <p th:text="'cantidad '+ ${carritoP.cantidad}"></p>
                           <p th:text="'Precio Unitario: '+${carritoP.product.price}"> <br>
@@ -153,7 +154,7 @@
           <div class="row">
             <div class="col l6 s12">
               <h5 class="white-text">Peru Delibery</h5>
-              <p class="grey-text text-lighten-4">Lideres en el venta de productos de seguridad.</p>
+              <p class="grey-text text-lighten-4">Lideres en la venta de productos de seguridad.</p>
             </div>
             <div class="col l4 offset-l2 s12">
               <h5 class="white-text">Sitio</h5>
