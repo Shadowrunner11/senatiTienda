@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class ProductController {
 
     @Autowired
     private final ProductService productService;
-
+    private static DecimalFormat decima = new DecimalFormat("0.00");
     List<CarritoCompras> carrito = new ArrayList<>();
     List<Long> ids = new ArrayList<>();
 
@@ -56,11 +57,20 @@ public class ProductController {
     public String showCarrito(@RequestParam String cantidad, @RequestParam String id, Model model){
         int n_cantidad = Integer.parseInt(cantidad);
         Long n_id = Long.parseLong(id);
+        Double precioT = productService.findById(n_id).getPrice() * n_cantidad;
+
+        double importe = 0;
+        String importeDecimal = "0.00";
         if(!ids.contains(n_id)){
             ids.add(n_id);
-            carrito.add(new CarritoCompras(n_cantidad,productService.findById(n_id)));
+            carrito.add(new CarritoCompras(n_cantidad,productService.findById(n_id), precioT));
+            for (CarritoCompras product: carrito) {
+                importe+=product.getPrecioT();
+            }
+            importeDecimal = decima.format(importe);
         };
         model.addAttribute("listaCarrito", carrito);
+        model.addAttribute("importe", importeDecimal);
         return "carrito";
    }
 

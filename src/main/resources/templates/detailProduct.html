@@ -98,9 +98,10 @@
                                 <input id="icon_telephone" type="number" class="validate" value="1" name="cantidad">
                                 <input type="hidden" name="id" th:field="*{id}">
                           <label for="icon_telephone">Cantidad</label>
-
                             </div>
-
+                            <div class="input-field col s6">
+                                <p th:text="*{price}" class="align-center">Price</p>
+                            </div>
                         </div>
                         <div class="center">
                         <button class="btn waves-effect waves-light" type="submit" name="action">Agregar
@@ -108,9 +109,7 @@
                         </button>
                         </div>
                     </form>
-                    <div class="input-field col s6">
-                        <p th:text="*{price}" class="align-center">Price</p>
-                    </div>
+
                     <br>
                     <div class="card-tabs">
                     <ul class="tabs tabs-fixed-width">

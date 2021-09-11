@@ -13,4 +13,5 @@ import org.springframework.context.annotation.Bean;
 public class CarritoCompras {
     private int cantidad;
     private Product product;
+    private Double precioT;
 }
