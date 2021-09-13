@@ -23,6 +23,7 @@
         .nav-wrapper .espacio, #user{
             padding: 0 50px 0 50px;
         }
+        
     </style>
 </head>
 <body>
@@ -98,14 +99,14 @@
             <div th:if="${!products.isEmpty()}" class="row" >
 
                 <!--producto-->
-                <div class="col s12 m6d l4 hoverable" th:each="product:${products}">
+                <div class="col s12 m6 l4 hoverable" th:each="product:${products}">
                     <h5 class="header" th:text="${product.name}"></h5>
                     <div class="card horizontal">
                         <div class="card-image">
                             <img class="responsive-img" th:src="${product.imagenLink}">
                         </div>
                         <div class="card-stacked">
-                            <div class="card-content">
+                            <div class="card-content description">
                                 <p th:text="${product.description}"></p>
                             </div>
                             <div class="card-action">
